@@ -20,7 +20,8 @@ export class BookService {
     const queryURL = `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_KEY}`;
     return this.http.get(queryURL).pipe(
       map((data: any) => {
-        data.items.map(item => {
+        console.log(data)
+        return data.items.map(item => {
             return this.bookFactory(item);
         });
       })
@@ -29,7 +30,12 @@ export class BookService {
 
   bookFactory(item: any): Book {
    // console.log(item)
-    return new Book(item.volumeInfo.title);
+    return new Book(
+      item.volumeInfo.title,
+      item.volumeInfo.categories,
+      item.volumeInfo.authors,
+      item.volumeInfo.imageLinks
+    );
   }
 
 }

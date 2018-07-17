@@ -1,5 +1,8 @@
 export class Book {
     constructor(
-        public title: string
+        public title: string,
+        public category: string[],
+        public author: string[],
+        public bookCover: any
     ) { }
 }
