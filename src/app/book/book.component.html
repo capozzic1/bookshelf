@@ -1,0 +1,4 @@
+<h1>{{ book.title }}</h1>
+<h2>{{ book.category ? book.category : "Not available" }}</h2>
+<p>by {{ book.author[0] }}</p>
+<img [src]="book.bookCover.thumbnail" alt="book cover">

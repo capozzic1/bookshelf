@@ -10,6 +10,7 @@ import { SearchComponent } from './search/search.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { PaginateComponent } from './paginate/paginate.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BookComponent } from './book/book.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     SearchPageComponent,
     SearchComponent,
     BookListComponent,
-    PaginateComponent
+    PaginateComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,
