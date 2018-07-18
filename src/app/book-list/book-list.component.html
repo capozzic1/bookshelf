@@ -1,5 +1,10 @@
-<div class="book-list" *ngFor="let book of books$ | async" routerLink="/book/{{book.id}}">
-    <app-book [book]="book"></app-book>
-</div>
 
 
+<mat-grid-list cols="4" rowHeight="600px">
+    <mat-grid-tile
+        *ngFor="let book of books$ | async"
+        [colspan]="1"
+        [rowspan]="1">
+        <app-book  [book]="book" routerLink="/book/{{book.id}}"></app-book>
+    </mat-grid-tile>
+</mat-grid-list>

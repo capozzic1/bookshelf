@@ -12,6 +12,9 @@ import { PaginateComponent } from './paginate/paginate.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BookComponent } from './book/book.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +28,12 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
