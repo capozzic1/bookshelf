@@ -28,13 +28,21 @@ export class BookService {
     )
   }
 
+  getBook(id: any) {
+    const queryURL = `https://www.googleapis.com/books/v1/volumes/${id}`;
+
+    return this.http.get(queryURL)
+    .pipe(map(item => this.bookFactory(item)));
+  }
+
   bookFactory(item: any): Book {
    // console.log(item)
     return new Book(
       item.volumeInfo.title,
       item.volumeInfo.categories,
       item.volumeInfo.authors,
-      item.volumeInfo.imageLinks
+      item.volumeInfo.imageLinks,
+      item.id
     );
   }
 

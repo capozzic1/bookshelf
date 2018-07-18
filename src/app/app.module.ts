@@ -11,6 +11,7 @@ import { BookListComponent } from './book-list/book-list.component';
 import { PaginateComponent } from './paginate/paginate.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BookComponent } from './book/book.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { BookComponent } from './book/book.component';
     SearchComponent,
     BookListComponent,
     PaginateComponent,
-    BookComponent
+    BookComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,

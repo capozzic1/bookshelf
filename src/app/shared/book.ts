@@ -3,6 +3,7 @@ export class Book {
         public title: string,
         public category: string[],
         public author: string[],
-        public bookCover: any
+        public bookCover: any,
+        public id: number
     ) { }
 }
