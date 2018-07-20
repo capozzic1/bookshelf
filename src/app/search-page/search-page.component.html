@@ -1,3 +1,9 @@
 <app-search></app-search>
-<app-book-list></app-book-list>
-<app-paginate></app-paginate>
+<app-book-list [books]="bookService?.books"></app-book-list>
+<app-pager
+[page]="bookService?.page"
+[totalPages]="bookService?.totalPages"
+(changePage)="bookService.page = $event"
+></app-pager>
+
+

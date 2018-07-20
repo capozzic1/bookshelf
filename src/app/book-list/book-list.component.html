@@ -1,12 +1,11 @@
-
-
 <mat-grid-list cols="4" rowHeight="400px">
-    <mat-grid-tile
-        *ngFor="let book of books$ | async"
-        [colspan]="1"
-        [rowspan]="1">
+  <mat-grid-tile
+      *ngFor="let book of books"
+      [colspan]="1"
+      [rowspan]="1">
 
-        <!-- This line is not rendering-->
-        <app-book [book]="book" routerLink="/book/{{book.id}}"></app-book>
-    </mat-grid-tile>
+      <!-- This line is not rendering-->
+      <app-book [book]="book" routerLink="/book/{{book.id}}"></app-book>
+  </mat-grid-tile>
 </mat-grid-list>
+

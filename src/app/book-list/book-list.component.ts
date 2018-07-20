@@ -1,7 +1,7 @@
-import { Book } from './../shared/book';
-import { Component, OnInit } from '@angular/core';
-import { BookService } from '../shared/book.service';
 import { Observable } from 'rxjs';
+import { Book } from './../shared/book';
+import { Component, OnInit, Input } from '@angular/core';
+import { BookService } from '../shared/book.service';
 
 @Component({
   selector: 'app-book-list',
@@ -10,17 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class BookListComponent implements OnInit {
 
-  books$: Observable<Book[]>;
-  
+  @Input() books;
 
-  constructor(private bookService: BookService) { }
+  constructor() { }
 
-  getBooks() {
-    const test = 'Angular';
-    this.books$ =  this.bookService.getBooks(test);
-  }
   ngOnInit() {
-    this.getBooks();
   }
 
 }

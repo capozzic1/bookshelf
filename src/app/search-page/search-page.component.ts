@@ -1,3 +1,4 @@
+import { BookService } from './../shared/book.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookService: BookService) { }
 
   ngOnInit() {
   }
