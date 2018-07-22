@@ -40,12 +40,12 @@ export class BookService {
   }
 
   set page(val: number) {
-    console.log(val)
+    
     // tslint:disable-next-line:no-unused-expression
     if (val !== this._page) {
-      console.log("test")
+    
       this._page = val;
-      this.getBooks(this.query).subscribe(items => console.log(items))
+      this.getBooks(this.query);
     }
   }
 
@@ -57,7 +57,7 @@ export class BookService {
     this.http.get(queryURL).pipe(
       tap((data: any) => { this.totalItems = data.totalItems; }),
       map((data: any) => {
-        console.log(data);
+        
         return data.items.map(item => {
             return this.bookFactory(item);
         });

@@ -1,4 +1,6 @@
 <div class="book-detail">
-  <app-book [book]="book$ | async"></app-book>
-
+  <app-book [book]="book"></app-book>
+  <button mat-raised-button  [disabled]="hasBook(book)" (click)="addBook(book)" >Add book to Library</button>
+  <button mat-raised-button  [disabled]="!hasBook(book)" (click)="removeBook(book)" >Remove book from Library</button>
 </div>
+

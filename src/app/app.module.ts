@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { PagerComponent } from './pager/pager.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
+import { LibraryComponent } from './library/library.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     BookDetailComponent,
     PagerComponent,
     SearchComponent,
+    LibraryComponent,
   ],
   imports: [
     BrowserModule,
