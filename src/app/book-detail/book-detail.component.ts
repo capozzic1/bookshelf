@@ -28,28 +28,24 @@ export class BookDetailComponent implements OnInit {
 
   hasBook(book: Book): boolean {
     if (book) {
-      console.log(this.libraryService.hasBook(book));
       return this.libraryService.hasBook(book);
     }
   }
 
   addBook(book: Book) {
     if (this.hasBook(book) === false) {
-      console.log("added book")
       this.libraryService.addBook(book);
     }
   }
 
   removeBook(book: Book) {
     if (this.hasBook(book)) {
-      console.log("removed book")
       this.libraryService.removeBook(book);
     }
   }
 
   ngOnInit() {
     this.getBook();
-    
   }
 
 }

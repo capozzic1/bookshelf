@@ -16,11 +16,6 @@ export class LibraryService implements OnInit{
   }
 
   hasBook(book: Book): boolean {
-    //console.log(this.books)
-    console.log(this.books)
-    console.log(book)
-    console.log(this.indexOf(book));
-
     return this.indexOf(book) !== -1;
   }
 

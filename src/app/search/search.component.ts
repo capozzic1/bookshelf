@@ -14,8 +14,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  doSearch(){
-    console.log(this.term)
+  doSearch() {
     this.bookService.getBooks(this.term);
   }
 
