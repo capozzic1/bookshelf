@@ -77,5 +77,14 @@ describe('BookService', () => {
         service.pageSize = 10;
 
         expect(service.totalPages).toBe(219);
-    })
+    });
+
+    it('should make books', () => {
+     const nonBook = { volumeInfo : { title: 'test', category: ['art'], author: [], bookCover: [] }, id: 3 };
+
+     const book = service.bookFactory(nonBook);
+     
+     expect(book instanceof Book).toBe(true);
+
+    });
 });
