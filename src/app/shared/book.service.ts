@@ -1,7 +1,6 @@
 import { Book } from './book';
 import { Injectable, OnInit } from '@angular/core';
 import { map, tap } from 'rxjs/operators';
-
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -48,9 +47,9 @@ export class BookService  {
       this.getBooks(this.query);
     }
   }
-  
+
   initSearch(term: string) {
-    this.books$ = this.getBooks(term);
+    return this.books$ = this.getBooks(term);
   }
 
   getBooks(query: string): Observable<Book[]> {
@@ -67,7 +66,7 @@ export class BookService  {
     );
   }
 
-  getBook(id: any) {
+  getBook(id: any): Observable<Book> {
     const queryURL = `${this.API_PATH}/${id}`;
 
     return this.http.get(queryURL)
