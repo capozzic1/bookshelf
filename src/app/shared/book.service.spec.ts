@@ -29,7 +29,7 @@ describe('BookService', () => {
         ];
         const testQuery = 'test';
         const queryURL = `https://www.googleapis.com/books/v1/volumes?q=${testQuery}&maxResults=10&startIndex=10`;
-        // rewrite the service method to be easier to test
+    
         service.getBooks(testQuery).subscribe(books => {
             console.log(books)
             expect(books.length).toBe(2);
