@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class BookService  {
-  public books: Book[];
+  public books$: Observable<Book[]>;
   public _page = 1;
   public API_PATH = `https://www.googleapis.com/books/v1/volumes`;
   public query = '';
@@ -48,20 +48,23 @@ export class BookService  {
       this.getBooks(this.query);
     }
   }
+  
+  initSearch(term: string) {
+    this.books$ = this.getBooks(term);
+  }
 
-
-  getBooks(query: string): any {
+  getBooks(query: string): Observable<Book[]> {
     this.query = query;
     const queryURL = `${this.API_PATH}?q=${this.query}&maxResults=${this.pageSize}&startIndex=${this.startIndex}`;
-    console.log(queryURL);
-    this.http.get(queryURL).pipe(
+    
+    return this.http.get(queryURL).pipe(
       tap((data: any) => { this.totalItems = data.totalItems; }),
       map((data: any) => {
         return data.items.map(item => {
             return this.bookFactory(item);
         });
       })
-    ).subscribe(books => this.books = books);
+    );
   }
 
   getBook(id: any) {

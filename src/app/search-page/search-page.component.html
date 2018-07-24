@@ -1,5 +1,5 @@
 <app-search></app-search>
-<app-book-list [books]="bookService?.books"></app-book-list>
+<app-book-list [books]="bookService?.books$ | async"></app-book-list>
 <app-pager
 [page]="bookService?.page"
 [totalPages]="bookService?.totalPages"

@@ -13,6 +13,10 @@ describe('BookService', () => {
             providers: [ BookService ]
         });
 
+    afterEach(() => {
+        httpMock.verify();
+    });
+
     service = TestBed.get(BookService);
     httpMock = TestBed.get(HttpTestingController);
     });
@@ -24,14 +28,17 @@ describe('BookService', () => {
             { title: 'test2', category: ['science'], author: [], bookCover: [], id: 2 }
         ];
         const testQuery = 'test';
-        const queryURL = `https://www.googleapis.com/books/v1/volumes?
-        q=${testQuery}&maxResults=10&startIndex=10`;
-        //rewrite the service method to be easier to test
-        service.getBooks(queryURL);
+        const queryURL = `https://www.googleapis.com/books/v1/volumes?q=${testQuery}&maxResults=10&startIndex=10`;
+        // rewrite the service method to be easier to test
+        service.getBooks(testQuery).subscribe(books => {
+            console.log(books)
+            expect(books.length).toBe(2);
+            expect(books).toEqual(dummyBooks);
+        });
 
-        
-        // https://www.googleapis.com/books/v1/volumes?q=test&maxResults=10&startIndex=10
-        
+        const request = httpMock.expectOne(queryURL);
+
+        expect(request.request.method).toBe('GET');
 
         request.flush(dummyBooks);
     });
