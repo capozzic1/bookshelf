@@ -6,7 +6,7 @@ import { Injectable, OnInit } from '@angular/core';
 })
 export class LibraryService implements OnInit{
 
-  private books: Book[] = [];
+  public books: Book[] = [];
 
   constructor() {
    }
@@ -21,14 +21,14 @@ export class LibraryService implements OnInit{
 
   addBook(book: Book) {
     if (!this.hasBook(book)) {
-      console.log("added book")
+    
       this.books.push(book);
       this.save();
     }
   }
 
   save() {
-    console.log("save")
+    
     localStorage.setItem('books', JSON.stringify(this.books));
   }
 
@@ -57,9 +57,10 @@ export class LibraryService implements OnInit{
 
   indexOf(book: Book): number {
     const length = this.books.length;
+
     for (let i = 0; i < length; i++) {
-      if (this.books[i].id == book.id) {
-        console.log("matched id")
+      if (this.books[i].id === book.id) {
+      
         return i;
       }
     }
