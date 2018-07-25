@@ -11,9 +11,24 @@ describe('LibraryService', () => {
       providers: [LibraryService]
     });
 
+    let store = {};
+
+    const mockLocalStorage = {
+      getItem: (key: string): string => {
+        return key in store ? store[key] : null;
+      },
+      setItem: (key:string, value:string) => {
+        store[key] = `${value}`;
+      }
+    }
+
+    spyOn(localStorage, 'getItem').and.callFake(mockLocalStorage.getItem);
+    spyOn(localStorage, 'setItem').and.callFake(mockLocalStorage.setItem);
+
     service = TestBed.get(LibraryService);
   });
 
+  
 it('should retrieve the index of a book', () => {
   service.books = [];
   const book: Book =  { title: 'test', category: ['art'], author: [], bookCover: [], id: 3 };
@@ -44,6 +59,21 @@ it('should add books', () => {
 
 });
 
+it('should save books into localStorage', () => {
+  const dummyBooks: Book[] = [
+    { title: 'test', category: ['art'], author: [], bookCover: [], id: 3 },
+    { title: 'test2', category: ['science'], author: [], bookCover: [], id: 2 }
+];
+
+  service.books = dummyBooks;
+
+  service.save();
+
+  expect(localStorage.getItem('books')).toEqual(JSON.stringify(dummyBooks));
+ 
+
+
+});
 
   
 });
