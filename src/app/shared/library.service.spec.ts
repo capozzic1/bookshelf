@@ -11,7 +11,7 @@ describe('LibraryService', () => {
       providers: [LibraryService]
     });
 
-    let store = {};
+    const store = {};
 
     const mockLocalStorage = {
       getItem: (key: string): string => {
@@ -20,7 +20,7 @@ describe('LibraryService', () => {
       setItem: (key:string, value:string) => {
         store[key] = `${value}`;
       }
-    }
+    };
 
     spyOn(localStorage, 'getItem').and.callFake(mockLocalStorage.getItem);
     spyOn(localStorage, 'setItem').and.callFake(mockLocalStorage.setItem);

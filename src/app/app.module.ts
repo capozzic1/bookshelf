@@ -17,7 +17,8 @@ import { PagerComponent } from './pager/pager.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 import { LibraryComponent } from './library/library.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { LibraryComponent } from './library/library.component';
     MatCardModule,
     MatGridListModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    FlexLayoutModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
