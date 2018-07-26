@@ -44,7 +44,8 @@ export class BookService  {
     if (val !== this._page) {
     
       this._page = val;
-      this.getBooks(this.query);
+      //this.getBooks(this.query);
+      this.initSearch(this.query);
     }
   }
 
@@ -53,12 +54,14 @@ export class BookService  {
   }
 
   getBooks(query: string): Observable<Book[]> {
+    console.log(query)
     this.query = query;
     const queryURL = `${this.API_PATH}?q=${this.query}&maxResults=${this.pageSize}&startIndex=${this.startIndex}`;
     
     return this.http.get(queryURL).pipe(
       tap((data: any) => { this.totalItems = data.totalItems; }),
       map((data: any) => {
+        console.log(data)
         return data.items.map(item => {
             return this.bookFactory(item);
         });

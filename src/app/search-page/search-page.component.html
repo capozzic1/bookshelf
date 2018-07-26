@@ -1,7 +1,8 @@
-<div fxLayout="column" >
-<app-search fxFlexAlign="center"></app-search>
+<div fxLayout="column">
+<app-search></app-search>
 <app-book-list [books]="bookService?.books$ | async"></app-book-list>
 <app-pager
+fxFlexAlign="center"
 [page]="bookService?.page"
 [totalPages]="bookService?.totalPages"
 (changePage)="bookService.page = $event"

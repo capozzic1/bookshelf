@@ -1,5 +1,7 @@
 
 
 <form action="" (ngSubmit)="doSearch()">
-<input type="text" [(ngModel)]="term" name="term">
+    <mat-form-field class="search-input">   
+<input matInput placeholder="Search for a book" type="text" [(ngModel)]="term" name="term">
+</mat-form-field>
 </form>
