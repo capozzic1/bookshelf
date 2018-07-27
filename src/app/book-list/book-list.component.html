@@ -1,17 +1,7 @@
-<!-- <mat-grid-list cols="4" rowHeight="400px">
-  <mat-grid-tile
-      *ngFor="let book of books"
-      [colspan]="1"
-      [rowspan]="1">
-
-    
-      <app-book [book]="book" routerLink="/book/{{book.id}}"></app-book>
-  </mat-grid-tile>
-</mat-grid-list> -->
 
 <div fxLayout="row wrap" fxLayoutAlign="space-around" class="book-container">
   <app-book 
-            fxFlex="18%"
+            fxFlex="20%"
             *ngFor="let book of books" 
             [book]="book" 
             routerLink="/book/{{book.id}}"

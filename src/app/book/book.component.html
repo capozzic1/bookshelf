@@ -1,20 +1,16 @@
 
 
 <mat-card fxLayout="column" fxLayoutAlign="center center" class="book-card">
+        <img  [src]="book?.bookCover?.thumbnail" alt="book cover">
     <mat-card-content>
-        <img [src]="book?.bookCover?.thumbnail" alt="book cover">
-        <mat-chip-list *ngIf="book.category">
-                <mat-chip *ngFor="let category of book.category"  class="chips">{{category}}</mat-chip>
+       
+        <mat-chip-list *ngIf="book.category" class="chip-group">
+                <mat-chip class="chip">{{book.category[0]}}</mat-chip>
             </mat-chip-list>
     </mat-card-content>
 
     <mat-card-header>
         <mat-card-title>{{ book?.title }}</mat-card-title>
-
-        
-   
-        
-
         <mat-card-subtitle><p>by {{ book?.author ? book?.author[0] : "No author" }}</p></mat-card-subtitle>
     </mat-card-header>
 </mat-card>
