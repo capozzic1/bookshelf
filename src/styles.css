@@ -1,3 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.chips {
+    background-color: #363c9e !important;
+    color: white !important;
+    margin: 7px auto !important;
+}
