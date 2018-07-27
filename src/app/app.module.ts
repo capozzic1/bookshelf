@@ -20,6 +20,7 @@ import { LibraryComponent } from './library/library.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     FlexLayoutModule,
     MatMenuModule,
-    MatInputModule
+    MatInputModule,
+    MatChipsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
