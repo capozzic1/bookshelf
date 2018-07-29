@@ -9,12 +9,12 @@ describe('BookService', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [ HttpClientTestingModule ],
-            providers: [ BookService ]
+            imports: [HttpClientTestingModule],
+            providers: [BookService]
         });
 
-    service = TestBed.get(BookService);
-    httpMock = TestBed.get(HttpTestingController);
+        service = TestBed.get(BookService);
+        httpMock = TestBed.get(HttpTestingController);
     });
 
     afterEach(() => {
@@ -24,13 +24,16 @@ describe('BookService', () => {
     it('should get multiple books', () => {
         // Arrange
         const dummyBooks: Book[] = [
-            { title: 'test', category: ['art'], author: [], bookCover: [], id: 3 },
-            { title: 'test2', category: ['science'], author: [], bookCover: [], id: 2 }
+            new Book('test', [], [], undefined, 3),
+            new Book('test2', [], [], undefined, 2)
+            //{ title: 'test', category: ['art'], author: [], bookCover: [], id: 3 },
+           // { title: 'test2', category: ['science'], author: [], bookCover: [], id: 2 }
         ];
         const testQuery = 'test';
         const queryURL = `https://www.googleapis.com/books/v1/volumes?q=${testQuery}&maxResults=10&startIndex=10`;
         // Act
         service.getBooks(testQuery).subscribe(books => {
+            console.log(books === dummyBooks)
             // Assert
             expect(books.length).toBe(2);
             expect(books).toEqual(dummyBooks);
@@ -40,16 +43,36 @@ describe('BookService', () => {
 
         expect(request.request.method).toBe('GET');
 
-        request.flush(dummyBooks);
+        request.flush({
+            items: [{
+                volumeInfo: {
+                    title: "test",
+                    categories: [],
+                    authors: [],
+                    bookCover: undefined,
+                },
+                id: 3
+            },
+            {
+                volumeInfo: {
+                    title: 'test2',
+                    categories: [],
+                    authors: [],
+                    bookCover: undefined
+                },
+                id: 2
+
+            }]
+        });
     });
 
     it('should get a book', () => {
-        const dummyBook: Book = { title: 'test', category: ['art'], author: [], bookCover: [], id: 3 };
+        const dummyBook = new Book('test', ['art'], [], undefined, 3);
         const testId = 12;
         const queryURL = `https://www.googleapis.com/books/v1/volumes/${testId}`;
 
         service.getBook(testId).subscribe((book) => {
-        
+            
             expect(book).toEqual(dummyBook);
         });
 
@@ -57,7 +80,14 @@ describe('BookService', () => {
 
         expect(request.request.method).toBe('GET');
 
-        request.flush(dummyBook);
+        request.flush({ volumeInfo: {
+            title: "test",
+            categories: ["art"],
+            authors: [],
+            bookCover: [],
+        },
+        id: 3
+        });
     })
 
     it('should set the page', () => {
@@ -82,11 +112,11 @@ describe('BookService', () => {
     });
 
     it('should make books', () => {
-     const nonBook = { volumeInfo : { title: 'test', categories: ['art'], authors: [], imageLinks: [] }, id: 3 };
-        
-     const book = service.bookFactory(nonBook);
-    
-    // expect(book instanceof Book).toBe(true);
+        const nonBook = { volumeInfo: { title: 'test', categories: ['art'], authors: [], imageLinks: [] }, id: 3 };
+
+        const book = service.bookFactory(nonBook);
+
+        // expect(book instanceof Book).toBe(true);
 
     });
 });
