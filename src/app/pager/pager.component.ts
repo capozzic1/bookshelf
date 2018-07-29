@@ -14,6 +14,7 @@ export class PagerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  
   }
 
   next() {

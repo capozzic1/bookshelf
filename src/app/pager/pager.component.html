@@ -1,7 +1,6 @@
 
 
 <div class="btn-container">
-        <button class="btn-page" mat-raised-button [disabled]="page === 1" (click)="prev()" >Previous</button>
-        <button class="btn-page" mat-raised-button [disabled]="page === totalPages" (click)="next()" >Next</button>
-    
+        <button class="btn-page btn-previous" mat-raised-button [disabled]="page === 1" (click)="prev()" >Previous</button>
+        <button class="btn-page btn-next" mat-raised-button [disabled]="page === totalPages" (click)="next()" >Next</button>
 </div>
