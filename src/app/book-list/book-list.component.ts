@@ -1,7 +1,7 @@
-import { Observable } from 'rxjs';
+
 import { Book } from './../shared/book';
 import { Component, OnInit, Input } from '@angular/core';
-import { BookService } from '../shared/book.service';
+
 
 @Component({
   selector: 'app-book-list',
@@ -10,7 +10,7 @@ import { BookService } from '../shared/book.service';
 })
 export class BookListComponent implements OnInit {
 
-  @Input() books;
+  @Input() books: Book[];
 
   constructor() { }
 
