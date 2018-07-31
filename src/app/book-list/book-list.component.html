@@ -1,10 +1,11 @@
 
-<div fxLayout="row wrap" fxLayoutAlign="space-around" class="book-container">
+<div fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="10px" class="book-container">
   <app-book 
-            fxFlex="20%"
+            fxFlex="25%"
             *ngFor="let book of books" 
             [book]="book" 
             routerLink="/book/{{book.id}}"
             ></app-book>
 </div>
+
 

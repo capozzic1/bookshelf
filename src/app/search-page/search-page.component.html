@@ -1,6 +1,6 @@
-<div fxLayout="column">
+<div fxLayout="column wrap" fxLayoutAlign="center">
 <app-search></app-search>
-<app-book-list [books]="bookService?.books$ | async"></app-book-list>
+<app-book-list [books]="bookService?.books$ | async" fxFlex="80%" ></app-book-list>
 <app-pager
 fxFlexAlign="center"
 [page]="bookService?.page"
