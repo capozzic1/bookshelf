@@ -10,10 +10,10 @@
     <mat-card-subtitle><p>by {{book?.author ? book.author[0] : "No author"}}</p></mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-      <div fxLayout.xs="column" fxLayout.sm="row">
+      <div fxLayout.xs="column" fxLayoutAlign="center" fxLayout.sm="row wrap">
 
-          <button mat-raised-button  fxFlex.sm="50%" fxFlex.xs="80%" [disabled]="hasBook(book)" (click)="addBook(book)" >Add book to Library</button>
-          <button mat-raised-button  fxFlex.sm="50%" fxFlex.xs="80%" [disabled]="!hasBook(book)" (click)="removeBook(book)" >Remove book from Library</button>
+          <button mat-raised-button  fxFlex.sm="50%" fxFlex.xs="60%" [disabled]="hasBook(book)" (click)="addBook(book)" >Add book to Library</button>
+          <button mat-raised-button  fxFlex.sm="50%" fxFlex.xs="0 0 40px" [disabled]="!hasBook(book)" (click)="removeBook(book)" >Remove book from Library</button>
       </div>
   </mat-card-content>
   </mat-card>
