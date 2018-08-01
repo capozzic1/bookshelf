@@ -1,7 +1,9 @@
 
-<div fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="10px" class="book-container">
+<div fxLayout="row wrap" fxLayoutAlign="start" class="book-container">
   <app-book 
             fxFlex="25%"
+            fxFlex.sm = "33%"
+            fxFlex.xs = "100%"
             *ngFor="let book of books" 
             [book]="book" 
             routerLink="/book/{{book.id}}"

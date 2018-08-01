@@ -1,21 +1,22 @@
-<div class="book-detail" >
-  <mat-card fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
-  <img [src]="book?.bookCover?.small" alt="">
-<mat-chip-list *ngIf="book?.category">
+<div class="book-detail">
+  <mat-card fxLayout="column" fxLayoutAlign="center">
+  <img class="single-cover" [src]="book?.bookCover?.small" alt="">
+ 
+<mat-chip-list fxFlex="80%" *ngIf="book?.category">
   <mat-chip *ngFor="let category of book.category">{{category}}</mat-chip>
 </mat-chip-list>
-  <mat-card-header>
+  <mat-card-header class="header-text">
     <mat-card-title>{{book?.title}}</mat-card-title>
     <mat-card-subtitle><p>by {{book?.author ? book.author[0] : "No author"}}</p></mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-      <div>
+      <div fxLayout.xs="column" fxLayout.sm="row">
 
-          <button mat-raised-button  [disabled]="hasBook(book)" (click)="addBook(book)" >Add book to Library</button>
-          <button mat-raised-button  [disabled]="!hasBook(book)" (click)="removeBook(book)" >Remove book from Library</button>
+          <button mat-raised-button  fxFlex.sm="50%" fxFlex.xs="80%" [disabled]="hasBook(book)" (click)="addBook(book)" >Add book to Library</button>
+          <button mat-raised-button  fxFlex.sm="50%" fxFlex.xs="80%" [disabled]="!hasBook(book)" (click)="removeBook(book)" >Remove book from Library</button>
       </div>
   </mat-card-content>
   </mat-card>
-
 </div>
+
 

@@ -1,4 +1,17 @@
-.book-detail {
-    width: 40%;
-    margin: 0 auto;
+
+.header-text {
+    margin-top: 5%;
+}
+
+img.single-cover {
+    width: 50%;
+    margin: auto;
+    height:400px;
+}
+
+@media screen and (min-width: 769px){
+    .book-detail {
+        width: 50%;
+        margin: auto;
+    }
 }
