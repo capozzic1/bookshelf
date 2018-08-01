@@ -6,13 +6,13 @@ import { SearchPageComponent } from './search-page/search-page.component';
 
 const routes: Routes = [
   {
-    path: 'search', component: SearchPageComponent
+    path: 'search', loadChildren: 'app/search/search.module#SearchModule'
   },
+  // { put in book module routing 
+  //   path: 'book/:id', component: BookDetailComponent
+  // },
   {
-    path: 'book/:id', component: BookDetailComponent
-  },
-  {
-    path: 'library', component: LibraryComponent
+    path: 'library', loadChildren: 'app/library/library.module#LibraryModule'
   },
   {
     path: '',
