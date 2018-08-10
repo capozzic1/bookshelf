@@ -1,4 +1,5 @@
-import { LibraryService } from './../shared/library.service';
+import { LibraryService } from './../core-module/library.service';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

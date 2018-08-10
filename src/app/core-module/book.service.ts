@@ -1,5 +1,5 @@
-import { Book } from './book';
-import { Injectable, OnInit } from '@angular/core';
+import { Book } from '../book/book';
+import { Injectable } from '@angular/core';
 import { map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -44,7 +44,7 @@ export class BookService  {
     if (val !== this._page) {
     
       this._page = val;
-      //this.getBooks(this.query);
+      
       this.initSearch(this.query);
     }
   }

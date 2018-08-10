@@ -1,10 +1,11 @@
-import { Book } from './book';
+import { Book } from './../book/book';
+
 import { Injectable, OnInit } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LibraryService implements OnInit{
+export class LibraryService implements OnInit {
 
   public books: Book[] = [];
 

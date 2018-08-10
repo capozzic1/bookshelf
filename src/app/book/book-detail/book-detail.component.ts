@@ -1,9 +1,9 @@
-import { LibraryService } from './../shared/library.service';
-import { Observable } from 'rxjs';
-import { BookService } from '../shared/book.service';
+import { LibraryService } from './../../core-module/library.service';
+import { BookService } from '../../core-module/book.service';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Book } from '../shared/book';
+import { Book } from '../book';
 
 @Component({
   selector: 'app-book-detail',

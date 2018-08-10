@@ -1,4 +1,5 @@
-import { BookService } from './../shared/book.service';
+import { BookService } from '../core-module/book.service';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

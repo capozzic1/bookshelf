@@ -1,3 +1,6 @@
+
+import { BookModule } from './book/book.module';
+import { CoreModule } from './core-module/core.module';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -8,26 +11,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
     HeaderComponent
 
   ],
   imports: [
     BrowserModule,
+    
     CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
     FormsModule,
-  
-
-    
+    BookModule,
   ],
-  providers: [],
+  providers: [CoreModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
+import { Book } from '../book';
 
-import { Book } from './../shared/book';
 import { Component, OnInit, Input } from '@angular/core';
 
 
