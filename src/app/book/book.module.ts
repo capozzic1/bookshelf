@@ -1,10 +1,10 @@
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HttpClientModule } from '@angular/common/http';
 import { TruncatePipe } from './pipes/truncate.pipe';
@@ -40,8 +40,6 @@ import { BookRoutingModule } from './book-routing.module';
     BookListComponent,
     TruncatePipe
   ],
-  providers: [
-    
-  ]
+
 })
 export class BookModule { }

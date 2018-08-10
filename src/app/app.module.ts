@@ -1,3 +1,5 @@
+import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { BookModule } from './book/book.module';
 import { CoreModule } from './core-module/core.module';
@@ -19,13 +21,14 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    
+    FlexLayoutModule,
     CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     BookModule,
+    MatButtonModule
   ],
   providers: [CoreModule],
   bootstrap: [AppComponent]

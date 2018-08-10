@@ -13,7 +13,11 @@ const routes: Routes = [
   {
     path: 'library', loadChildren: './library/library.module#LibraryModule'
   },
- 
+  {
+    path: '',
+    redirectTo: 'search',
+    pathMatch: 'full'
+  },
 
 ];
 
