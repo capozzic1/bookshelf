@@ -33,7 +33,7 @@ export class BookDetailComponent implements OnInit {
   }
 
   addBook(book: Book) {
-    if (this.hasBook(book) === false) {
+    if (!this.hasBook(book)) {
       this.libraryService.addBook(book);
     }
   }

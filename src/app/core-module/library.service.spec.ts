@@ -1,4 +1,4 @@
-import { Book } from './book';
+import { Book } from './../book/book';
 import { TestBed } from '@angular/core/testing';
 
 import { LibraryService } from './library.service';
@@ -17,7 +17,7 @@ describe('LibraryService', () => {
       getItem: (key: string): string => {
         return key in store ? store[key] : null;
       },
-      setItem: (key:string, value:string) => {
+      setItem: (key: string, value: string) => {
         store[key] = `${value}`;
       }
     };

@@ -1,6 +1,7 @@
+import { Book } from './../book/book';
 import { TestBed } from '@angular/core/testing';
 import { BookService } from './book.service';
-import { Book } from './book';
+
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('BookService', () => {

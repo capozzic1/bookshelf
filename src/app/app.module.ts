@@ -1,5 +1,5 @@
-import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
 
 import { BookModule } from './book/book.module';
 import { CoreModule } from './core-module/core.module';
