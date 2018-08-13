@@ -11,7 +11,7 @@ let mockActivatedRoute, mockLibraryService, mockBookService, book;
 
 beforeEach(() => {
     mockBookService = jasmine.createSpyObj(['getBook']);
-    mockLibraryService = jasmine.createSpyObj(['hasBook', 'addBook']);
+    mockLibraryService = jasmine.createSpyObj(['hasBook', 'addBook', 'removeBook']);
     mockActivatedRoute = {
         snapshot: { paramMap: { get: () => 1 }}
     };
@@ -43,6 +43,17 @@ beforeEach(() => {
             component.addBook(book);
 
             expect(mockLibraryService.addBook).toHaveBeenCalledWith(book);
+        });
+    });
+
+    describe('removeBook', () => {
+        it("should call the library service's removeBook method with the correct parameter", () => {
+        component.book = book;
+        mockLibraryService.hasBook.and.returnValue(true);
+
+        component.removeBook(book);
+
+        expect(mockLibraryService.removeBook).toHaveBeenCalledWith(book);
         });
     });
 });
