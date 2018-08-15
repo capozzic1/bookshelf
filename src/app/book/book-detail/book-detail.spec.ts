@@ -1,9 +1,7 @@
 import { Book } from './../book';
 import { of } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 import { BookDetailComponent } from './book-detail.component';
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+
 describe('BookDetailComponent', () => {
 let component: BookDetailComponent;
 let mockActivatedRoute, mockLibraryService, mockBookService, book;
@@ -16,7 +14,7 @@ beforeEach(() => {
         snapshot: { paramMap: { get: () => 1 }}
     };
     book = new Book('', [], [], '', 1);
-    //mockRoute = TestBed.get(ActivatedRoute);
+
     component = new BookDetailComponent(mockActivatedRoute, mockBookService, mockLibraryService);
 });
     describe('getHero', () => {
@@ -55,5 +53,15 @@ beforeEach(() => {
 
         expect(mockLibraryService.removeBook).toHaveBeenCalledWith(book);
         });
+    });
+
+    describe('ngOnInit', () => {
+       it('should call getBook on initialization', () => {
+        spyOn(component, 'getBook').and.returnValue(of(true));
+
+        component.ngOnInit();
+
+        expect(component.getBook).toHaveBeenCalled();
+       });
     });
 });

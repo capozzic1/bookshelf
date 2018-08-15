@@ -5,12 +5,13 @@
     <mat-card-content>
        
         <mat-chip-list *ngIf="book.category" class="chip-group">
-                <mat-chip class="chip">{{book.category[0]}}</mat-chip>
+           
+                <mat-chip>{{book.category[0]}}</mat-chip>
             </mat-chip-list>
     </mat-card-content>
 
     <mat-card-header>
-        <mat-card-title>{{ book?.title | truncate }}</mat-card-title>
+        <mat-card-title><p>{{ book?.title | truncate }}</p></mat-card-title>
         <mat-card-subtitle><p>by {{ book?.author ? book?.author[0] : "No author" }}</p></mat-card-subtitle>
     </mat-card-header>
 </mat-card>
