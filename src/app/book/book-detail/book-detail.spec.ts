@@ -19,7 +19,7 @@ describe('BookDetailComponent', () => {
         mockActivatedRoute = {
             snapshot: { paramMap: { get: () => 1 } }
         };
-        book = new Book('', [], [], '', 1);
+        book = new Book('Instant pot dessert', ['food'], ['bianca'], '', 1);
 
         TestBed.configureTestingModule({
             declarations: [BookDetailComponent],
@@ -80,5 +80,19 @@ describe('BookDetailComponent', () => {
 
             expect(component.getBook).toHaveBeenCalled();
         });
+    });
+
+    it('should render a category, title, and author in the template', () => {
+        component.book = book; 
+        spyOn(component, 'getBook').and.returnValue(of(true));
+        fixture.detectChanges();
+        
+        let chip = fixture.nativeElement.querySelector('mat-chip');
+        let title = fixture.nativeElement.querySelector('mat-card-title');
+        let author = fixture.nativeElement.querySelector('mat-card-subtitle');
+
+        expect(title.textContent).toContain('Instant pot');
+        expect(chip.textContent).toContain('food');
+        expect(author.textContent).toContain('bianca');
     });
 });
