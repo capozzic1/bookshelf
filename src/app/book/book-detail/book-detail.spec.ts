@@ -1,25 +1,42 @@
+import { ComponentFixture } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { LibraryService } from './../../core-module/library.service';
+import { BookService } from './../../core-module/book.service';
+import { TestBed } from '@angular/core/testing';
 import { Book } from './../book';
 import { of } from 'rxjs';
 import { BookDetailComponent } from './book-detail.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('BookDetailComponent', () => {
-let component: BookDetailComponent;
-let mockActivatedRoute, mockLibraryService, mockBookService, book;
+    let component: BookDetailComponent;
+    let mockActivatedRoute, mockLibraryService, mockBookService, book;
+    let fixture: ComponentFixture<BookDetailComponent>;
 
+    beforeEach(() => {
+        mockBookService = jasmine.createSpyObj(['getBook']);
+        mockLibraryService = jasmine.createSpyObj(['hasBook', 'addBook', 'removeBook']);
+        mockActivatedRoute = {
+            snapshot: { paramMap: { get: () => 1 } }
+        };
+        book = new Book('', [], [], '', 1);
 
-beforeEach(() => {
-    mockBookService = jasmine.createSpyObj(['getBook']);
-    mockLibraryService = jasmine.createSpyObj(['hasBook', 'addBook', 'removeBook']);
-    mockActivatedRoute = {
-        snapshot: { paramMap: { get: () => 1 }}
-    };
-    book = new Book('', [], [], '', 1);
+        TestBed.configureTestingModule({
+            declarations: [BookDetailComponent],
+            providers: [
+                { provide: BookService, useValue: mockBookService },
+                { provide: LibraryService, useValue: mockLibraryService },
+                { provide: ActivatedRoute, useValue: mockActivatedRoute }
+            ],
+            schemas: [ NO_ERRORS_SCHEMA ]
+        });
 
-    component = new BookDetailComponent(mockActivatedRoute, mockBookService, mockLibraryService);
-});
+        fixture = TestBed.createComponent(BookDetailComponent);
+        component = fixture.componentInstance;
+    });
     describe('getHero', () => {
         it('should get a book from the book service and set the book property', () => {
-            
+
             mockBookService.getBook.and.returnValue(of(book));
 
             component.getBook();
@@ -27,7 +44,7 @@ beforeEach(() => {
             expect(component.book).toEqual(book);
         });
     })
-    
+
     describe('hasBook', () => {
         it("should call the library service's hasBook method", () => {
             component.hasBook(book);
@@ -46,22 +63,22 @@ beforeEach(() => {
 
     describe('removeBook', () => {
         it("should call the library service's removeBook method with the correct parameter", () => {
-        component.book = book;
-        mockLibraryService.hasBook.and.returnValue(true);
+            component.book = book;
+            mockLibraryService.hasBook.and.returnValue(true);
 
-        component.removeBook(book);
+            component.removeBook(book);
 
-        expect(mockLibraryService.removeBook).toHaveBeenCalledWith(book);
+            expect(mockLibraryService.removeBook).toHaveBeenCalledWith(book);
         });
     });
 
     describe('ngOnInit', () => {
-       it('should call getBook on initialization', () => {
-        spyOn(component, 'getBook').and.returnValue(of(true));
+        it('should call getBook on initialization', () => {
+            spyOn(component, 'getBook').and.returnValue(of(true));
 
-        component.ngOnInit();
+            component.ngOnInit();
 
-        expect(component.getBook).toHaveBeenCalled();
-       });
+            expect(component.getBook).toHaveBeenCalled();
+        });
     });
 });
