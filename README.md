@@ -1,3 +1,14 @@
+
+This is a project that contains the following features: 
+
+- Can search for a book
+- Can add a book to the library 
+- Can delete a book from the library
+- Can click on a single book to view its details 
+- Can paginate to other pages with previous and next buttons
+
+It has 4 feature modules, a lazy loaded module, and some tests.
+
 # Bookshelf2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.

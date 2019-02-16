@@ -1,4 +1,4 @@
-<div fxLayout="column wrap" fxLayoutAlign="center">
+<div fxLayout="column wrap" fxLayoutAlign="center" (swipeleft)="onSwipe($evt)" class="search-container">
 <app-search></app-search>
 <app-book-list [books]="bookService?.books$ | async" fxFlex="80%" ></app-book-list>
 <app-pager

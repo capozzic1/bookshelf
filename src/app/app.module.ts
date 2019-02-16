@@ -3,7 +3,6 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { BookModule } from './book/book.module';
 import { CoreModule } from './core-module/core.module';
-import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,9 +14,7 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ 
-    AppComponent,
-    HeaderComponent
-
+    AppComponent
   ],
   imports: [
     BrowserModule,

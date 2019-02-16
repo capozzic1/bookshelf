@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { BookService } from '../../core-module/book.service';
 
 import { Component, OnInit } from '@angular/core';
@@ -9,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPageComponent implements OnInit {
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onSwipe(evt) {
+    this.router.navigate(['/library']);
   }
 
 }

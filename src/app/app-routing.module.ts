@@ -7,9 +7,6 @@ const routes: Routes = [
   {
     path: 'search', loadChildren: './search/search.module#SearchModule'
   },
-  // { put in book module routing 
-  //   path: 'book/:id', component: BookDetailComponent
-  // },
   {
     path: 'library', loadChildren: './library/library.module#LibraryModule'
   },
@@ -17,8 +14,7 @@ const routes: Routes = [
     path: '',
     redirectTo: 'search',
     pathMatch: 'full'
-  },
-
+  }
 ];
 
 @NgModule({

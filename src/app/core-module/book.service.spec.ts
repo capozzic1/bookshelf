@@ -27,14 +27,12 @@ describe('BookService', () => {
         const dummyBooks: Book[] = [
             new Book('test', [], [], undefined, 3),
             new Book('test2', [], [], undefined, 2)
-            //{ title: 'test', category: ['art'], author: [], bookCover: [], id: 3 },
-           // { title: 'test2', category: ['science'], author: [], bookCover: [], id: 2 }
+           
         ];
         const testQuery = 'test';
         const queryURL = `https://www.googleapis.com/books/v1/volumes?q=${testQuery}&maxResults=10&startIndex=10`;
         // Act
         service.getBooks(testQuery).subscribe(books => {
-            console.log(books === dummyBooks)
             // Assert
             expect(books.length).toBe(2);
             expect(books).toEqual(dummyBooks);
@@ -116,8 +114,8 @@ describe('BookService', () => {
         const nonBook = { volumeInfo: { title: 'test', categories: ['art'], authors: [], imageLinks: [] }, id: 3 };
 
         const book = service.bookFactory(nonBook);
-
-        // expect(book instanceof Book).toBe(true);
+        
+        expect(book instanceof Book).toBe(true);
 
     });
 });

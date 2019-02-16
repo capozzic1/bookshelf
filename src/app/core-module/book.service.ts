@@ -77,7 +77,6 @@ export class BookService  {
   }
 
   bookFactory(item: any): Book {
-   // console.log(item)
     return new Book(
       item.volumeInfo.title,
       item.volumeInfo.categories,
